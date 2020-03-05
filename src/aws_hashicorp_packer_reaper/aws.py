@@ -1,6 +1,7 @@
 from pytz import UTC
 from datetime import datetime, timedelta
 
+
 class EC2Instance(dict):
     def __init__(self, i):
         self.update(i)
@@ -24,9 +25,10 @@ class EC2Instance(dict):
     @property
     def running_for(self) -> timedelta:
         return UTC.localize(datetime.utcnow()) - self.launch_time
+
     @property
     def state(self):
-        return self.get("State",{}).get("Name")
+        return self.get("State", {}).get("Name")
 
     def __str__(self):
         return f"{self.instance_id}\t({self.name})"

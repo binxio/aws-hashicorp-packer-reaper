@@ -85,7 +85,7 @@ deploy: target/$(NAME)-$(VERSION).zip
 		s3://$(S3_BUCKET)/lambdas/$(NAME)-$(VERSION).zip \
 		s3://$(S3_BUCKET)/lambdas/$(NAME)-latest.zip
 
-deploy-lambda: deploy target/$(NAME)-$(VERSION).zip
+deploy-lambda:
 	aws cloudformation deploy \
 		--capabilities CAPABILITY_IAM \
 		--stack-name $(NAME) \

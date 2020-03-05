@@ -15,7 +15,12 @@ def list_packer_instances(ec2: object) -> List[EC2Instance]:
     ):
         for reservation in response["Reservations"]:
             for instance in map(lambda i: EC2Instance(i), reservation["Instances"]):
-                log.debug("adding instance %s %s %s", instance, instance.launch_time, instance.state)
+                log.debug(
+                    "adding instance %s %s %s",
+                    instance,
+                    instance.launch_time,
+                    instance.state,
+                )
                 instances.append(instance)
     return instances
 
@@ -60,5 +65,5 @@ def handler(request, _):
     if hours < 0:
         raise ValueError("hours are less than 0")
     destroy_expired_instances(
-        boto3.client("ec2"), dry_run, timedelta(hours=hours), mode
+        ec2=boto3.client("ec2"), dry_run=dry_run, hours=hours, mode=mode
     )
