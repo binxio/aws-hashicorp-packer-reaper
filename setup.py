@@ -17,7 +17,7 @@ setup(
     license='BSD',
     author='Mark van Holsteijn',
     author_email='mark@binx.io',
-    description='Maintain AWS CloudWatch log streams',
+    description='reap dangling packer builder machines on AWS',
     long_description=long_description,
     long_description_content_type='text/markdown',
     package_dir={'': 'src'},
@@ -55,3 +55,4 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ]
 )
+
