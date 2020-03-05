@@ -23,7 +23,7 @@ class EC2Instance(dict):
         return self.get("LaunchTime")
 
     @property
-    def running_for(self) -> timedelta:
+    def time_since_launch(self) -> timedelta:
         return UTC.localize(datetime.utcnow()) - self.launch_time
 
     @property
@@ -31,4 +31,4 @@ class EC2Instance(dict):
         return self.get("State", {}).get("Name")
 
     def __str__(self):
-        return f"{self.instance_id}\t({self.name})"
+        return f"{self.instance_id} ({self.name})"

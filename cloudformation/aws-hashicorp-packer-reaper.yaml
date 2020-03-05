@@ -69,14 +69,26 @@ Resources:
       FunctionName: !GetAtt AWSHashicorpPackerReaper.Arn
       Principal: events.amazonaws.com
 
-  AWSHashicorpPackerReaperSchedule:
+  AWSHashicorpPackerReaperStopSchedule:
     Type: AWS::Events::Rule
     Properties:
-      Name: aws-hashicorp-packer-reaper
+      Name: stop-old-aws-hashicorp-packer-machines
       Description: reap expired Hashicorp Packer Builders
-      ScheduleExpression: 'cron(55 * * * ? *)'
+      ScheduleExpression: 'rate(1 hour)'
       State: ENABLED
       Targets:
         - Id: aws-hashicorp-packer-build-reaper
           Arn: !GetAtt AWSHashicorpPackerReaper.Arn
-          Input: '{"dry_run": false, "hours": 2, "mode": "stop"}'
+          Input: '{"dry_run": false, "older_than": "2h", "mode": "stop"}'
+
+  AWSHashicorpPackerReaperTerminatorSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: terminate-old-aws-hashicorp-packer-machines
+      Description: reap expired Hashicorp Packer Builders
+      ScheduleExpression: 'rate(4 hours)'
+      State: ENABLED
+      Targets:
+        - Id: aws-hashicorp-packer-build-reaper
+          Arn: !GetAtt AWSHashicorpPackerReaper.Arn
+          Input: '{"dry_run": false, "older_than": "24h", "mode": "terminate"}'

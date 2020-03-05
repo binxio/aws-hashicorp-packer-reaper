@@ -22,13 +22,13 @@ aws-hashicorp-packer-reaper list
 ## stop running packer instances
 To stop running packer instances older than 2 hours:
 ```sh
-aws-hashicorp-packer-reaper stop --dry-run --hours 2
+aws-hashicorp-packer-reaper stop --dry-run --older-than 2h
 ```
 
 ## terminate running packer instances
 To terminate stopped and running packer instances older than 24 hours:
 ```sh
-aws-hashicorp-packer-reaper terminate --dry-run --hours 24
+aws-hashicorp-packer-reaper terminate --dry-run --older-than 24h
 ```
 
 ## deploy the packer reaper
@@ -42,5 +42,6 @@ aws cloudformation deploy \
 	--stack-name aws-hashicorp-packer-reaper \
 	--template-file ./cloudformation/aws-hashicorp-packer-reaper.yaml
 ```
-This will install the packer reaper in your AWS account and run every hour, stopping packer instances running for more than 2 hours.
+This will install the packer reaper in your AWS account and run every hour, stopping packer instances 
+launhed  more than 2 hours ago and terminate instanced older than 24 hours.
 

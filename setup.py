@@ -3,7 +3,7 @@ The AWS Cloudwatch Log minder
 """
 from setuptools import find_packages, setup
 
-dependencies = ['boto3', 'click', 'pytz']
+dependencies = ['boto3', 'click', 'pytz', 'humanize', 'durations']
 
 from os import path
 this_directory = path.abspath(path.dirname(__file__))

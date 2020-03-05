@@ -1,3 +1,5 @@
 boto3
 click
 pytz
+humanize
+durations

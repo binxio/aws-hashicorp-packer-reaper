@@ -14,6 +14,8 @@ aws-hashicorp-packer-reaper = {editable = true,path = "."}
 click = "*"
 pytz = "*"
 boto3 = "*"
+humanize = "*"
+durations = "*"
 
 [requires]
 
