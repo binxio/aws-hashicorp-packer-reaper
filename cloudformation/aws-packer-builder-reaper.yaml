@@ -1,0 +1,82 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  LambdaS3Bucket:
+    Type: String
+    Default: ''
+  CFNCustomProviderZipFileName:
+    Type: String
+    Default: lambdas/aws-hashicorp-packer-reaper-latest.zip
+  LogRetentionInDays:
+    Description: 'to apply to log groups without retention'
+    Type: Number
+    Default: 30
+    MinValue: 1
+
+Conditions:
+  UsePublicBucket: !Equals
+    - !Ref 'LambdaS3Bucket'
+    - ''
+
+Resources:
+  AWSHashicorpPackerReaper:
+    Type: AWS::Lambda::Function
+    Properties:
+      Description: reap EC2 instance with name 'Packer Builder'
+      FunctionName: aws-hashicorp-packer-reaper
+      Code:
+        S3Bucket: !If
+          - UsePublicBucket
+          - !Sub 'binxio-public-${AWS::Region}'
+          - !Ref 'LambdaS3Bucket'
+        S3Key: !Ref 'CFNCustomProviderZipFileName'
+      Handler: aws_hashicorp_packer_reaper.handler
+      Role: !GetAtt LambdaRole.Arn
+      Runtime: python3.7
+      Timeout: 60
+
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action: sts:AssumeRole
+
+      Policies:
+        - PolicyName: AWSHashicorpPackerReaper
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ec2:DescribeInstances
+                  - ec2:TerminateInstances
+                  - ec2:StopInstances
+                Resource: "*"
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  AWSHashicorpPackerReaperSchedulePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: "lambda:InvokeFunction"
+      FunctionName: !GetAtt AWSHashicorpPackerReaper.Arn
+      Principal: events.amazonaws.com
+
+  AWSHashicorpPackerReaperSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: aws-hashicorp-packer-reaper
+      Description: reap expired Hashicorp Packer Builders
+      ScheduleExpression: 'cron(55 * * * ? *)'
+      State: ENABLED
+      Targets:
+        - Id: aws-hashicorp-packer-build-reaper
+          Arn: !GetAtt AWSHashicorpPackerReaper.Arn
+          Input: '{"dry_run": false, "hours": 2, "mode": "stop"}'

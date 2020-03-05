@@ -1,0 +1,880 @@
+{
+    "Reservations": [
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-06abff5b683449423",
+                    "InstanceId": "i-04396dfcc700b1eef",
+                    "InstanceType": "z1d.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-26T13:45:55.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:49:05 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-053ab79f449f134f1"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-0ca5d5dab9883472e",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-26T14:09:57.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:49:37 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-0d9836718b402520a"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-09c580e6a2d52879b",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-26T14:09:08.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:49:20 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-004165353b0f711c7"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-00457568896023797",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-26T14:06:19.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:48:30 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-0224fc1ca2e9df2dc"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-021d341233fe9e9c8",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-26T14:01:36.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:48:42 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-0db04a30939b5acf2"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-06abff5b683449423",
+                    "InstanceId": "i-0ab104bc1ac0c5c26",
+                    "InstanceType": "z1d.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-26T13:17:52.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-02-26 13:27:45 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-01d070f0ee0ef3f42"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-0a2c6e77d2c10dc98",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-03-04T12:44:24.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:50:19 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-067009af041df967a"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-030b6171d92a70fcc",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-26T14:05:47.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:49:59 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-0f63596151e5da323"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-031e8e8d055fb2a5d",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-03-04T12:33:02.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:43:52 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-0d8041cc87cd88dbb"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-0e013a7f7c4db744e",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-03-04T12:57:55.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "ip-10-0-0-222.eu-central-1.compute.internal",
+                    "PrivateIpAddress": "10.0.0.222",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 80,
+                        "Name": "stopped"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 13:07:19 GMT)",
+                    "SubnetId": "subnet-041c26b0da51bcdea",
+                    "VpcId": "vpc-0d3139647f8167d32",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1",
+                            "Ebs": {
+                                "AttachTime": "2020-03-04T12:57:56.000Z",
+                                "DeleteOnTermination": true,
+                                "Status": "attached",
+                                "VolumeId": "vol-057616ab7b5048f1e"
+                            }
+                        }
+                    ],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "IamInstanceProfile": {
+                        "Arn": "arn:aws:iam::058388011322:instance-profile/packer",
+                        "Id": "AIPAQ3GBSLE5DDBN5EVXG"
+                    },
+                    "NetworkInterfaces": [
+                        {
+                            "Attachment": {
+                                "AttachTime": "2020-03-04T12:57:55.000Z",
+                                "AttachmentId": "eni-attach-0af5dadfe64f06f7c",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "Status": "attached"
+                            },
+                            "Description": "",
+                            "Groups": [
+                                {
+                                    "GroupName": "vb-qrm-cicd-ami-pipeline-SecurityGroup-185YO0O04ZH2Q",
+                                    "GroupId": "sg-0fa2aa0a1816cc8b7"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "02:6e:a6:fe:a1:10",
+                            "NetworkInterfaceId": "eni-01ba1bcd0a20c4e5e",
+                            "OwnerId": "058388011322",
+                            "PrivateDnsName": "ip-10-0-0-222.eu-central-1.compute.internal",
+                            "PrivateIpAddress": "10.0.0.222",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-10-0-0-222.eu-central-1.compute.internal",
+                                    "PrivateIpAddress": "10.0.0.222"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-041c26b0da51bcdea",
+                            "VpcId": "vpc-0d3139647f8167d32"
+                        }
+                    ],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "vb-qrm-cicd-ami-pipeline-SecurityGroup-185YO0O04ZH2Q",
+                            "GroupId": "sg-0fa2aa0a1816cc8b7"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-062d1674d845b4bbb"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-0cac3d8e322f9768b",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-03-04T12:57:23.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "ip-10-0-0-7.eu-central-1.compute.internal",
+                    "PrivateIpAddress": "10.0.0.7",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 80,
+                        "Name": "stopped"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 13:08:29 GMT)",
+                    "SubnetId": "subnet-041c26b0da51bcdea",
+                    "VpcId": "vpc-0d3139647f8167d32",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1",
+                            "Ebs": {
+                                "AttachTime": "2020-03-04T12:57:23.000Z",
+                                "DeleteOnTermination": true,
+                                "Status": "attached",
+                                "VolumeId": "vol-07b8db75730a32320"
+                            }
+                        }
+                    ],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "IamInstanceProfile": {
+                        "Arn": "arn:aws:iam::058388011322:instance-profile/packer",
+                        "Id": "AIPAQ3GBSLE5DDBN5EVXG"
+                    },
+                    "NetworkInterfaces": [
+                        {
+                            "Attachment": {
+                                "AttachTime": "2020-03-04T12:57:23.000Z",
+                                "AttachmentId": "eni-attach-04b837eabcf2c6382",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "Status": "attached"
+                            },
+                            "Description": "",
+                            "Groups": [
+                                {
+                                    "GroupName": "vb-qrm-cicd-ami-pipeline-SecurityGroup-185YO0O04ZH2Q",
+                                    "GroupId": "sg-0fa2aa0a1816cc8b7"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "02:1d:b0:c5:69:be",
+                            "NetworkInterfaceId": "eni-0365e4742c5e18d9b",
+                            "OwnerId": "058388011322",
+                            "PrivateDnsName": "ip-10-0-0-7.eu-central-1.compute.internal",
+                            "PrivateIpAddress": "10.0.0.7",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-10-0-0-7.eu-central-1.compute.internal",
+                                    "PrivateIpAddress": "10.0.0.7"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-041c26b0da51bcdea",
+                            "VpcId": "vpc-0d3139647f8167d32"
+                        }
+                    ],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "vb-qrm-cicd-ami-pipeline-SecurityGroup-185YO0O04ZH2Q",
+                            "GroupId": "sg-0fa2aa0a1816cc8b7"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-064aaa427aa8c8ba1"
+        },
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-01ff06d6c38ed6008",
+                    "InstanceId": "i-027ce2baaa3ffee27",
+                    "InstanceType": "m4.large",
+                    "KeyName": "packer",
+                    "LaunchTime": "2020-02-27T09:18:28.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "eu-central-1a",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "Platform": "windows",
+                    "PrivateDnsName": "",
+                    "ProductCodes": [],
+                    "PublicDnsName": "",
+                    "State": {
+                        "Code": 48,
+                        "Name": "terminated"
+                    },
+                    "StateTransitionReason": "User initiated (2020-03-04 12:48:52 GMT)",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [],
+                    "RootDeviceName": "/dev/sda1",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [],
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "Packer Builder"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 1,
+                        "ThreadsPerCore": 2
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    },
+                    "HibernationOptions": {
+                        "Configured": false
+                    }
+                }
+            ],
+            "OwnerId": "058388011322",
+            "RequesterId": "329275576079",
+            "ReservationId": "r-0200b19b92e46c740"
+        }
+    ]
+}
