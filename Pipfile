@@ -4,7 +4,6 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-boto3 = "*"
 pytest = "*"
 botostubs = "*"
 click = "*"
@@ -12,7 +11,10 @@ twine = "*"
 
 [packages]
 aws-hashicorp-packer-reaper = {editable = true,path = "."}
+click = "*"
 pytz = "*"
+boto3 = "*"
 
 [requires]
+
 python_version = "3.7"
