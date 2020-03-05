@@ -14,8 +14,8 @@ help:
 	@echo 'make test            - execute the tests, requires a working AWS connection.'
 	@echo 'make deploy	    - lambda to bucket $(S3_BUCKET)'
 	@echo 'make deploy-all-regions - lambda to all regions with bucket prefix $(S3_BUCKET_PREFIX)'
-	@echo 'make deploy-lambda - deploys the manager.'
-	@echo 'make delete-lambda - deletes the manager.'
+	@echo 'make deploy-lambda - deploys the reaper.'
+	@echo 'make delete-lambda - deletes the reaper.'
 	@echo 'make demo            - deploys the provider and the demo cloudformation stack.'
 	@echo 'make delete-demo     - deletes the demo cloudformation stack.'
 
