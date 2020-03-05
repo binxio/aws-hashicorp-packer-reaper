@@ -43,5 +43,5 @@ aws cloudformation deploy \
 	--template-file ./cloudformation/aws-hashicorp-packer-reaper.yaml
 ```
 This will install the packer reaper in your AWS account and run every hour, stopping packer instances 
-launhed  more than 2 hours ago and terminate instanced older than 24 hours.
+launched more than 2 hours ago and terminate instances older than 24 hours.
 
