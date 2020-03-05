@@ -7,7 +7,7 @@ Parameters:
     Default: ''
   CFNCustomProviderZipFileName:
     Type: String
-    Default: lambdas/aws-hashicorp-packer-reaper-latest.zip
+    Default: lambdas/aws-hashicorp-packer-reaper-0.1.0.zip
   LogRetentionInDays:
     Description: 'to apply to log groups without retention'
     Type: Number
