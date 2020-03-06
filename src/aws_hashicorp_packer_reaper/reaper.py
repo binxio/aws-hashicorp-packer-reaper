@@ -6,8 +6,8 @@ import boto3
 import humanize
 import durations
 
-from .aws import EC2Instance
-from .logger import log
+from aws_hashicorp_packer_reaper.aws import EC2Instance
+from aws_hashicorp_packer_reaper.logger import log
 
 
 def list_packer_instances(ec2: object) -> List[EC2Instance]:
@@ -19,9 +19,9 @@ def list_packer_instances(ec2: object) -> List[EC2Instance]:
         for reservation in response["Reservations"]:
             for instance in map(lambda i: EC2Instance(i), reservation["Instances"]):
                 log.debug(
-                    "found instance %s launched at %s, now in state %s",
+                    "found instance %s launched %s, now in state %s",
                     instance,
-                    instance.launch_time,
+                    humanize.naturaltime(instance.time_since_launch),
                     instance.state,
                 )
                 instances.append(instance)
@@ -29,53 +29,48 @@ def list_packer_instances(ec2: object) -> List[EC2Instance]:
 
 
 def expired_packer_instances(
-    instances: List[EC2Instance], older_than: timedelta
+    instances: List[EC2Instance], states: List[str], older_than: timedelta
 ) -> List[EC2Instance]:
     return list(
         filter(
-            lambda i: i.state in ["running", "stopped"]
-            and i.time_since_launch > older_than,
-            instances,
+            lambda i: i.state in states and i.time_since_launch > older_than, instances
         )
     )
 
 
-def destroy_expired_instances(
-    ec2: object, dry_run: bool, older_than: timedelta, mode: str
-):
+def stop_expired_instances(ec2: object, dry_run: bool, older_than: timedelta):
     count = 0
-    instances = expired_packer_instances(list_packer_instances(ec2), older_than)
-    for instance in instances:
-        if mode == "terminate":
-            log.info(
-                "terminating %s created %s",
-                instance,
-                humanize.naturaltime(instance.time_since_launch),
-            )
-            count = count + 1
-            if not dry_run:
-                ec2.terminate_instances(InstanceIds=[instance.instance_id])
-        else:
-            if instance.state == "running":
-                log.info(
-                    "stopping %s created %s",
-                    instance,
-                    humanize.naturaltime(instance.time_since_launch),
-                )
-                count = count + 1
-                if not dry_run:
-                    ec2.stop_instances(InstanceIds=[instance.instance_id])
-            elif instance.state == "stopped":
-                log.debug("instance %s already stopped", instance)
-            else:
-                log.info(
-                    "instance %s is in flux, current state is %s",
-                    instance,
-                    instance.state,
-                )
-    log.info(
-        f"total of {len(instances)} instances, {count} {mode}{'ped' if mode == 'stop' else 'd'}, {len(instances)-count} skipped"
+    instances = expired_packer_instances(
+        list_packer_instances(ec2), ["running"], older_than
     )
+    for instance in instances:
+        log.info(
+            "stopping %s created %s",
+            instance,
+            humanize.naturaltime(instance.time_since_launch),
+        )
+        count = count + 1
+        if not dry_run:
+            ec2.stop_instances(InstanceIds=[instance.instance_id])
+    log.info(f"total of {len(instances)} running instances stopped")
+
+
+def terminate_expired_instances(ec2: object, dry_run: bool, older_than: timedelta):
+    instances = expired_packer_instances(
+        list_packer_instances(ec2), ["running", "stopped"], older_than
+    )
+    for instance in instances:
+        log.info(
+            "terminating %s created %s",
+            instance,
+            humanize.naturaltime(instance.time_since_launch),
+        )
+        if not dry_run:
+            ec2.terminate_instances(InstanceIds=[instance.instance_id])
+    log.info(f"total of {len(instances)} instances terminated")
+
+
+operation = {"stop": stop_expired_instances, "terminate": terminate_expired_instances}
 
 
 def handler(request, _):
@@ -84,9 +79,11 @@ def handler(request, _):
     older_than = durations.Duration(request.get("older_than", "2h"))
     mode = request.get("mode", "stop")
 
-    destroy_expired_instances(
+    operation[mode](
         ec2=boto3.client("ec2"),
         dry_run=dry_run,
         older_than=timedelta(seconds=older_than.seconds),
-        mode=mode,
     )
+
+if __name__ == '__main__':
+    handler({"mode":"stop", "older_than": "1m", "dry_run": "true"}, {})
