@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Hashicorp Packer reaper demo
+Parameters:
+  VPC:
+    Type: AWS::EC2::VPC::Id
+  Subnets:
+    Type: List<AWS::EC2::Subnet::Id>
+  Ami:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+Resources:
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AutoScalingGroupName: !Ref AWS::StackName
+      VPCZoneIdentifier: !Ref 'Subnets'
+      LaunchConfigurationName: !Ref 'LaunchConfiguration'
+      MinSize: '1'
+      MaxSize: '1'
+      DesiredCapacity: '1'
+      Tags:
+        - Key: Name
+          Value: Packer Builder
+          PropagateAtLaunch: true
+    UpdatePolicy:
+      AutoScalingRollingUpdate:
+        MinInstancesInService: 0
+        MaxBatchSize: 3
+        WaitOnResourceSignals: false
+
+  LaunchConfiguration:
+    Type: AWS::AutoScaling::LaunchConfiguration
+    Properties:
+      ImageId: !Ref 'Ami'
+      InstanceType: t3.nano
+
