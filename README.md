@@ -1,8 +1,6 @@
 # AWS Hashicorp Packer Reaper
 Hashicorp Packer is a great tool for building Amazon Machine Images. However, sometimes the virtual machine running packer
-is not stopped. This utility:
-
-1. stops or terminated all virtual machines with the name tag 'Packer Builder'
+is not stopped. This utility stops or terminated all virtual machines with the name tag 'Packer Builder'
 
 You can use it as a command line utility or install it as an AWS Lambda function and stop the spend , NoOps style!
 
@@ -56,3 +54,4 @@ This will install the packer reaper in your AWS account and run every hour, stop
 launched more than 2 hours ago and terminate instances older than 24 hours. You can change the schedule
 and the action to meet your requirements.
 
+read the blog too! https://binx.io/blog/2020/03/27/how-to-terminate-packer-instances-on-aws/
