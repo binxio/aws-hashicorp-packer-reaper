@@ -24,7 +24,7 @@ def main(ctx, dry_run, verbose):
 
 
 @main.command(help="packer builder instances")
-@click.option("--older-than", type=Duration(), default="2h", required=True, help="period since launched")
+@click.option("--older-than", type=Duration(), required=True, help="period since launched")
 @click.pass_context
 def stop(ctx, older_than):
     stop_expired_instances(
@@ -33,7 +33,7 @@ def stop(ctx, older_than):
 
 
 @main.command(help="packer builder instances")
-@click.option("--older-than", type=Duration(), default="24h", required=True, help="period since launched")
+@click.option("--older-than", type=Duration(), required=True, help="period since launched")
 @click.pass_context
 def terminate(ctx, older_than:Duration):
     terminate_expired_instances(
