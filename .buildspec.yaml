@@ -3,6 +3,7 @@ env:
   variables:
     LAMBDA_BUCKET_PREFIX: binxio-public
     LAMBDA_BUCKET_REGION: eu-central-1
+    MAKE_TARGET: deploy
 phases:
   install:
     runtime-versions:
@@ -10,4 +11,5 @@ phases:
         python: 3.7
   build:
     commands:
-      - make S3_BUCKET_PREFIX=${LAMBDA_BUCKET_PREFIX} AWS_REGION=${LAMBDA_BUCKET_REGION} deploy
+      - make S3_BUCKET_PREFIX=${LAMBDA_BUCKET_PREFIX:-binxio-public} AWS_REGION=${LAMBDA_BUCKET_REGION:-eu-central-1} ${MAKE_TARGET:-deploy}
+      - [ "$LAMBDA_BUCKET_PREFIX" != "binxio-public" ] || make upload-dist
