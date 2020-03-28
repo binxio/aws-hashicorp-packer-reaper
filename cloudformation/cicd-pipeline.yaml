@@ -25,7 +25,7 @@ Resources:
           - Name: MAKE_TARGET
             Value: deploy-all-regions
             Type: PLAINTEXT
-          - Name: TWINE_USER
+          - Name: TWINE_USERNAME
             Value: __token__
             Type: PLAINTEXT
           - Name: TWINE_PASSWORD
