@@ -1,6 +1,17 @@
 from pytz import UTC
 from datetime import datetime, timedelta
 
+class Tag(dict):
+    def __init__(self, **kwargs):
+        self.update(kwargs)
+
+    @property
+    def key(self):
+        return self["key"]
+
+    @property
+    def value(self):
+        return self["value"]
 
 class EC2Instance(dict):
     def __init__(self, i):

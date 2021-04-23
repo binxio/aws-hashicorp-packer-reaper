@@ -6,15 +6,15 @@ import boto3
 import humanize
 import durations
 
-from aws_hashicorp_packer_reaper.aws import EC2Instance
+from aws_hashicorp_packer_reaper.aws import EC2Instance, Tag
 from aws_hashicorp_packer_reaper.logger import log
 
 
-def list_packer_instances(ec2: object) -> List[EC2Instance]:
+def list_packer_instances(ec2: object, tags: List[Tag]) -> List[EC2Instance]:
     paginator = ec2.get_paginator("describe_instances")
     instances = []
     for response in paginator.paginate(
-        Filters=[{"Name": "tag:Name", "Values": ["Packer Builder"]}]
+        Filters=[{"Name": "tag:Name", "Values": ["Packer Builder"]}] + [{"Name": f"tag:{tag.key}", "Values": [tag.value]} for tag in tags]
     ):
         for reservation in response["Reservations"]:
             for instance in map(lambda i: EC2Instance(i), reservation["Instances"]):
@@ -38,10 +38,10 @@ def expired_packer_instances(
     )
 
 
-def stop_expired_instances(ec2: object, dry_run: bool, older_than: timedelta):
+def stop_expired_instances(ec2: object, dry_run: bool, older_than: timedelta, tags: List[Tag]):
     count = 0
     instances = expired_packer_instances(
-        list_packer_instances(ec2), ["running"], older_than
+        list_packer_instances(ec2, tags), ["running"], older_than
     )
     for instance in instances:
         log.info(
@@ -55,9 +55,9 @@ def stop_expired_instances(ec2: object, dry_run: bool, older_than: timedelta):
     log.info(f"total of {len(instances)} running instances stopped")
 
 
-def terminate_expired_instances(ec2: object, dry_run: bool, older_than: timedelta):
+def terminate_expired_instances(ec2: object, dry_run: bool, older_than: timedelta, tags: List[Tag]):
     instances = expired_packer_instances(
-        list_packer_instances(ec2), ["running", "stopped"], older_than
+        list_packer_instances(ec2, tags), ["running", "stopped"], older_than
     )
     for instance in instances:
         log.info(
