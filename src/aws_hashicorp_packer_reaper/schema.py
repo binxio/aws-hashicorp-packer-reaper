@@ -22,7 +22,7 @@ schema = {
         "dry_run": {
             "type": "boolean",
             "description": "if you only want output",
-            "default": True,
+            "default": False,
         },
         "tags": {
             "type": "array",
@@ -98,7 +98,7 @@ def validate(request: dict) -> bool:
     >>> validate(x)
     True
     >>> print(x)
-    {'mode': 'stop', 'older_than': '2h', 'dry_run': True}
+    {'mode': 'stop', 'older_than': '2h', 'dry_run': False}
     """
     try:
         validator.validate(request)
