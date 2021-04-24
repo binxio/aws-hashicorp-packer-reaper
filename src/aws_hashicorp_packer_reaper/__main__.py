@@ -36,7 +36,7 @@ def main(ctx, dry_run, verbose):
     type=TagType(),
     required=False,
     multiple=True,
-    help="Tags to filter instances by. Specify with Name=Value format.",
+    help="Tags to filter instances by in the format Name=Value. Can be specified multiple times.",
 )
 @click.pass_context
 def stop(ctx, older_than, tags):
@@ -58,7 +58,7 @@ def stop(ctx, older_than, tags):
     type=TagType(),
     required=False,
     multiple=True,
-    help="Tags to filter instances by. Specify with Name=Value format.",
+    help="Tags to filter instances by in the format Name=Value. Can be specified multiple times.",
 )
 @click.pass_context
 def terminate(ctx, older_than: Duration, tags: Tuple[Tag]):
@@ -78,7 +78,7 @@ def terminate(ctx, older_than: Duration, tags: Tuple[Tag]):
     required=False,
     multiple=True,
     default=[],
-    help="Tags to filter instances by. Specify with Name=Value format.",
+    help="Tags to filter instances by in the format Name=Value. Can be specified multiple times.",
 )
 def list_instances(tags: Tuple[Tag]):
     instances = list_packer_instances(boto3.client("ec2"), tags=tags)
