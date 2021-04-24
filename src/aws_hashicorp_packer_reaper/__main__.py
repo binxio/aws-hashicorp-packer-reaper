@@ -1,11 +1,11 @@
 import os
-from typing import Tuple
-from aws_hashicorp_packer_reaper.aws import Tag
+from typing import List, Tuple
+from aws_hashicorp_packer_reaper.aws import Tag, TagFilter
 
 import boto3
 import click
 import humanize
-from aws_hashicorp_packer_reaper.click_argument_types import Duration, TagParam
+from aws_hashicorp_packer_reaper.click_argument_types import DurationType, TagType
 from datetime import timedelta
 
 from aws_hashicorp_packer_reaper.logger import log
@@ -14,6 +14,7 @@ from aws_hashicorp_packer_reaper.reaper import (
     terminate_expired_instances,
     list_packer_instances,
 )
+from durations import Duration
 
 
 @click.group(help="stop or terminate dangling packer instances")
@@ -26,30 +27,61 @@ def main(ctx, dry_run, verbose):
 
 
 @main.command(help="packer builder instances")
-@click.option("--older-than", type=Duration(), required=True, help="period since launched")
-@click.option("--tag", 'tags', type=TagParam(), required=False, multiple=True, help="Tags to filter instances by. Specify with Name=Value format. Can specify --tag multiple times.")
+@click.option(
+    "--older-than", type=DurationType(), required=True, help="period since launched"
+)
+@click.option(
+    "--tag",
+    "tags",
+    type=TagType(),
+    required=False,
+    multiple=True,
+    help="Tags to filter instances by. Specify with Name=Value format.",
+)
 @click.pass_context
 def stop(ctx, older_than, tags):
     stop_expired_instances(
-        boto3.client("ec2"), dry_run=ctx.obj["dry_run"], older_than=timedelta(seconds=older_than.seconds), tags=tags
+        boto3.client("ec2"),
+        dry_run=ctx.obj["dry_run"],
+        older_than=timedelta(seconds=older_than.seconds),
+        tags=tags,
     )
 
 
 @main.command(help="packer builder instances")
-@click.option("--older-than", type=Duration(), required=True, help="period since launched")
-@click.option("--tag", 'tags', type=TagParam(), required=False, multiple=True, help="Tags to filter instances by. Specify with Name=Value format. Can specify --tag multiple times.")
+@click.option(
+    "--older-than", type=DurationType(), required=True, help="period since launched"
+)
+@click.option(
+    "--tag",
+    "tags",
+    type=TagType(),
+    required=False,
+    multiple=True,
+    help="Tags to filter instances by. Specify with Name=Value format.",
+)
 @click.pass_context
-def terminate(ctx, older_than:Duration, tags:Tuple[Tag]):
+def terminate(ctx, older_than: Duration, tags: Tuple[Tag]):
     terminate_expired_instances(
-        boto3.client("ec2"), dry_run=ctx.obj["dry_run"], older_than=timedelta(seconds=older_than.seconds), tags=tags
+        boto3.client("ec2"),
+        dry_run=ctx.obj["dry_run"],
+        older_than=timedelta(seconds=older_than.seconds),
+        tags=tags,
     )
 
 
-@main.command(help="packer builder instances")
-@click.option("--tag", 'tags', type=TagParam(), required=False, multiple=True, default=[], help="Tags to filter instances by. Specify with Name=Value format. Can specify --tag multiple times.")
-@click.pass_context
-def list(ctx, tags: Tuple[Tag]):
-    instances = list_packer_instances(boto3.client("ec2"), [tag for tag in tags])
+@main.command(name="list", help="packer builder instances")
+@click.option(
+    "--tag",
+    "tags",
+    type=TagType(),
+    required=False,
+    multiple=True,
+    default=[],
+    help="Tags to filter instances by. Specify with Name=Value format.",
+)
+def list_instances(tags: Tuple[Tag]):
+    instances = list_packer_instances(boto3.client("ec2"), tags=tags)
     for i in instances:
         print(f"{i} launched {humanize.naturaltime(i.time_since_launch)} - {i.state}")
     log.info(f"{len(instances)} packer builder instances found")

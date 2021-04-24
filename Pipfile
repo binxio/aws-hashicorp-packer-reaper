@@ -16,6 +16,7 @@ pytz = "*"
 boto3 = "*"
 humanize = "*"
 durations = "*"
+jsonschema = "*"
 
 [requires]
 

@@ -1,1 +1,1 @@
-from .reaper import handler
+from aws_hashicorp_packer_reaper.reaper import handler

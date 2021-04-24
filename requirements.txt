@@ -3,3 +3,4 @@ click
 pytz
 humanize
 durations
+jsonschema
