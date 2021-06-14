@@ -20,6 +20,16 @@ i-06ac951992dbc11a1 (Packer Builder) launched 13 minutes ago - terminated
 i-035ebe427a538c829 (Packer Builder) launched 4 minutes ago - running
 INFO: 2 packer builder instances found
 ```
+### usage with multiple profiles
+If you have multiple AWS Profiles (e.g. when working with AWS Organisations and SSO) you can specify the profile to use on the command line before executing the `aws-hashicorp-packer-reaper`.
+
+```sh
+$ AWS_PROFILE=not-my-default-profile aws-hashicorp-packer-reaper list
+
+i-0d72937e04c1123a9 (Packer Builder) launched 31 minutes ago - running
+i-0712d9bd593adb2fb (Packer Builder) launched 11 minutes ago - running
+INFO: 2 packer builder instances found
+```
 
 ## stop running packer instances
 To stop running packer instances older than 2 hours:
