@@ -4,6 +4,16 @@ is not stopped. This utility stops or terminated all virtual machines with the n
 
 You can use it as a command line utility or install it as an AWS Lambda function and stop the spend , NoOps style!
 
+Since version 1.0.9, the default name tag was removed. To make it work with the reaper add a run_tags block to the builder:
+
+```hcl
+source "amazon-ebs" "ubuntu" {
+   name = "my_ubuntu"
+   run_tags = {
+     Name = "Packer Builder"
+   }
+```
+
 ## install the packer reaper
 to install the packer reaper, type:
 
