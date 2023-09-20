@@ -7,7 +7,7 @@ Parameters:
     Default: ''
   CFNCustomProviderZipFileName:
     Type: String
-    Default: lambdas/aws-hashicorp-packer-reaper-0.2.0.zip
+    Default: lambdas/aws-hashicorp-packer-reaper-0.3.0.zip
   LogRetentionInDays:
     Description: 'to apply to log groups without retention'
     Type: Number
@@ -33,7 +33,7 @@ Resources:
         S3Key: !Ref 'CFNCustomProviderZipFileName'
       Handler: aws_hashicorp_packer_reaper.handler
       Role: !GetAtt LambdaRole.Arn
-      Runtime: python3.7
+      Runtime: python3.9
       Timeout: 60
 
   LambdaRole:

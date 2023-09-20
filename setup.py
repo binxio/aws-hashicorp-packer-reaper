@@ -12,7 +12,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='aws-hashicorp-packer-reaper',
-    version="0.2.0",
+    version="0.3.0",
     url='https://github.com/binxio/aws-hashicorp-packer-reaper',
     license='BSD',
     author='Mark van Holsteijn',
